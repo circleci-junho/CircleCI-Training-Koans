@@ -13,7 +13,8 @@ jobs:
           data-dir: ~/project/results
           upload: true
 # Add below this line, do not modify above
-
+      - store_test_results:
+        path: test-results
 # Add above this line, do not modify below
 
 workflows:
