@@ -20,6 +20,8 @@ commands:
 
 jobs:
   build:
+    docker:
+      - image: "cimg/node"
     executor: custom-node
     steps:
       - run: echo "console.log('complete')" | node
