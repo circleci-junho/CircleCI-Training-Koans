@@ -34,5 +34,6 @@ workflows:
       and:
         # Add condition to execute this workflow when condition-workflow is equal to true
         - equal: [ "14", << pipeline.git.branch >> ]
+        - equal: [ true, << pipeline.parameters.condition-workflow >> ]
     jobs:
       - conditional-job
