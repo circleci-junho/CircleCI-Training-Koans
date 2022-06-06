@@ -12,7 +12,7 @@ jobs:
         - run: cd ~/project/app && pwd && ls
           # Edit below here
         - persist_to_workspace: 
-            root: app
+            root: app/linux/
             paths: linux-output
 
   build-windows:
@@ -26,7 +26,7 @@ jobs:
         - run: cd ~/project/app && pwd && ls
           # Edit below here
         - persist_to_workspace: 
-            root: app
+            root: app/windows
             paths: windows-output
 
   build-mac:
@@ -40,7 +40,7 @@ jobs:
         - run: cd ~/project/app && pwd && ls
           # Edit below here
         - persist_to_workspace: 
-            root: app
+            root: app/mac
             paths: mac-output
 
   deploy:
