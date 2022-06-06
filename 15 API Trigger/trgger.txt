@@ -1,0 +1,5 @@
+curl --request POST \
+  --url https://circleci.com/api/v2/project/github/circleci-junho/CircleCI-Training-Koans/pipeline \
+  --header 'Circle-Token: e0be7aac02f7d6028092a57e02485903bc2e913f' \
+  --header 'content-type: application/json' \
+  --data '{"branch":"15","parameters":{"run_by_api":true}}'
