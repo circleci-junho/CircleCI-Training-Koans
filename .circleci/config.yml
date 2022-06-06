@@ -26,7 +26,7 @@ jobs:
     steps:
       - run: echo "console.log('complete')" | node
       - generatelogs:
-          - path: "~/project"
+          path: "~/project"
       - run:
           name: Check for logs - DO NOT MODIFY
           command: |
@@ -34,8 +34,7 @@ jobs:
               echo "The log should exist at ~/project/log.txt after running the 'generatelogs' command"
               exit 1
             fi
-      - endMission:
-          - exitCode: 1
+      - endMission
 
 workflows:
   build-workflow:
