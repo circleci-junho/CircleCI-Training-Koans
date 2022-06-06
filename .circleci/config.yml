@@ -13,7 +13,7 @@ jobs:
       - checkout
       - when:
           condition:
-            equal: [ main, << pipeline.git.branch >> ]
+            equal: [ 14, << pipeline.git.branch >> ]
           steps:
             - run: echo "I am on 14"
 
@@ -33,6 +33,6 @@ workflows:
     when:
       and:
         # Add condition to execute this workflow when condition-workflow is equal to true
-        - equal: [ main, << pipeline.git.branch >> ]
+        - equal: [ 14, << pipeline.git.branch >> ]
     jobs:
       - conditional-job
