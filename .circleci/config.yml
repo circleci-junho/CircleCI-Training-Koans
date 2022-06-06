@@ -4,6 +4,9 @@ executors:
   custom-node:
     docker:
       - image: cimg/node
+        auth:
+          username: $DOCKER_HUB_USERNAME
+          password: $DOCKER_HUB_PASSWORD
 
 commands:
   generatelogs:
