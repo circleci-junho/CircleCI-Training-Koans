@@ -32,7 +32,17 @@ workflows:
   build-test-and-deploy:
     jobs:
       - build
-      - test-node
-      - test-node-16
-      - test-node-14
-      - deploy
+      - test-node:
+          requires:
+            - build
+      - test-node-16:
+          requires:
+            - build
+      - test-node-14:
+          requires:
+            - build
+      - deploy:
+          requires:
+            - test-node
+            - test-node-16
+            - test-node-14
