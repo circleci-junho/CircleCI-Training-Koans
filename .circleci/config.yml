@@ -50,8 +50,8 @@ jobs:
         - attach_workspace:
             at: /tmp/app
         - store_artifacts: # See circleci.com/docs/2.0/artifacts/ for more details.
-          path: /tmp/artifact-1
-          destination: artifact-file
+            path: app
+            destination: apps
 
 workflows:
   build_and_deploy:
