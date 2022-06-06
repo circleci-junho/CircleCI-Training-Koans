@@ -23,7 +23,6 @@ jobs:
         - run:
             name: Generate app
             command: echo app >> app/windows/app.windows
-        - run: cd app/windows/a && pwd && ls
         - run: cd ~/project/app && pwd && ls
           # Edit below here
         - persist_to_workspace: 
