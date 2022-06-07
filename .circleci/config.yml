@@ -2,7 +2,8 @@ version: 2.1
 
 jobs:
   runner:
-    # Add your config here
+    machine: true
+    resource_class: junho-circleci/sample
     steps:
       - run: echo "Hi I'm on Runners!"
 
