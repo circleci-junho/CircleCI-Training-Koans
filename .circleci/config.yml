@@ -1,13 +1,31 @@
 version: 2.1
 
-jobs:
-  build-docker:
+executors:
+  linux:
     docker:
       - image: cimg/node:17.2.0
+  macos:
+    macos:
+      xcode: 12.5.1
+  windows:
+    machine:
+      image: 'windows-server-2022-gui:current'   
+  machine:
+    machine: true
+
+jobs:
+  build:
+    parameters:
+      os:
+        type: executor
+    executor: << parameters.os >>
     steps:
-      - run: echo "docker image"
+      - run: echo "using << parameters.os >>"
 
 workflows:
-  build-docker-workflow:
+  build-workflow:
     jobs:
-      - build-docker
+      - build:
+          matrix:
+            parameters:
+              os: ["linux", "macos", "windows", "machine"]
