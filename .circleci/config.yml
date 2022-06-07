@@ -21,9 +21,9 @@ jobs:
     parameters:
       os:
         type: string
-    executor: win/server-2022
+    executor: << parameters.os >>
     steps:
-      - run: echo "using win/server-2022"
+      - run: echo "using << parameters.os >>"
 
 workflows:
   build-workflow:
