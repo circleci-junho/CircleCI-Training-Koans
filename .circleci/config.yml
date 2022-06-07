@@ -3,10 +3,7 @@ version: 2.1
 executors:
   custom-node:
     docker:
-      - image: cimg/node
-        auth:
-          username: $DOCKER_HUB_USERNAME
-          password: $DOCKER_HUB_PASSWORD
+      - image: cimg/node:18.3.0
 
 commands:
   generatelogs:
@@ -46,4 +43,3 @@ workflows:
   build-workflow:
     jobs:
       - build
-          context: DOCKER_HUB
