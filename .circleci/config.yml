@@ -1,26 +1,26 @@
 version: 2.1
 
-# executors:
-#   linux:
-#     docker:
-#       - image: cimg/node:17.2.0
-#   macos:
-#     macos:
-#       xcode: 12.5.1
-#   windows:
-#     machine:
-#       image: 'windows-server-2022-gui'   
-#   machine:
-#     machine: true
+executors:
+  linux:
+    docker:
+      - image: cimg/node:17.2.0
+  macos:
+    macos:
+      xcode: 12.5.1
+  # windows:
+  #   machine:
+  #     image: 'windows-server-2022-gui'   
+  machine:
+    machine: true
 
 orbs:
-  win: circleci/windows@4.1
+  win: circleci/windows@4.1.1
 
 jobs:
   build:
-    # parameters:
-    #   os:
-    #     type: string
+    parameters:
+      os:
+        type: executor
     executor: win/server-2022
     steps:
       - run: echo "using win/server-2022"
@@ -29,6 +29,6 @@ workflows:
   build-workflow:
     jobs:
       - build
-          # matrix:
-          #   parameters:
-          #     os: ["linux", "macos", "win/server-2022", "machine"]
+          matrix:
+            parameters:
+              os: ["linux", "macos", "win/server-2022", "machine"]
