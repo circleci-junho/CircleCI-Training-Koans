@@ -1,34 +1,12 @@
 version: 2.1
 
-executors:
-  linux:
-    docker:
-      - image: cimg/node:17.2.0
-  macos:
-    macos:
-      xcode: 12.5.1
-  # windows:
-  #   machine:
-  #     image: 'windows-server-2022-gui'   
-  machine:
-    machine: true
-
-orbs:
-  win: circleci/windows@4.1.1
-
 jobs:
-  build:
-    parameters:
-      os:
-        type: executor
-    executor: << parameters.os >>
+  runner:
+    # Add your config here
     steps:
-      - run: echo "using << parameters.os >>"
+      - run: echo "Hi I'm on Runners!"
 
 workflows:
-  build-workflow:
+  testing:
     jobs:
-      - build:
-          matrix:
-            parameters:
-              os: ["linux", "macos", "win/server-2022", "machine"]
+      - runner
