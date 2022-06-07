@@ -20,7 +20,7 @@ jobs:
   build:
     parameters:
       os:
-        type: executor
+        type: string
     executor: win/server-2022
     steps:
       - run: echo "using win/server-2022"
