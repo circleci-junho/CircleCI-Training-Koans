@@ -28,7 +28,7 @@ jobs:
 workflows:
   build-workflow:
     jobs:
-      - build
+      - build:
           matrix:
             parameters:
               os: ["linux", "macos", "win/server-2022", "machine"]
