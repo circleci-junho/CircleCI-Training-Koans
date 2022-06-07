@@ -7,20 +7,17 @@ executors:
   macos:
     macos:
       xcode: 12.5.1
-  # windows:
-  #   machine:
-  #     image: 'windows-server-2022-gui:current'   
+  windows:
+    machine:
+      image: 'windows-server-2022-gui'   
   machine:
     machine: true
-
-orbs:
-  win: circleci/windows@2.2.0
 
 jobs:
   build:
     parameters:
       os:
-        type: string
+        type: executor
     executor: << parameters.os >>
     steps:
       - run: echo "using << parameters.os >>"
@@ -31,4 +28,4 @@ workflows:
       - build:
           matrix:
             parameters:
-              os: ["linux", "macos", "win/server-2022", "machine"]
+              os: ["linux", "macos", "windows", "machine"]
