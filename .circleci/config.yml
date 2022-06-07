@@ -20,7 +20,7 @@ jobs:
   build:
     parameters:
       os:
-        type: string
+        type: executor
     executor: << parameters.os >>
     steps:
       - run: echo "using << parameters.os >>"
