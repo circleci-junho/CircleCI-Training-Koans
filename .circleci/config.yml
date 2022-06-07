@@ -46,4 +46,3 @@ workflows:
   build-workflow:
     jobs:
       - build
-          context: DOCKER_HUB
