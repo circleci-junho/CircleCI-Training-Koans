@@ -29,8 +29,6 @@ commands:
 jobs:
   build:
     executor: custom-node
-    context:
-      - DOCKER_HUB
     steps:
       - run: echo "console.log('complete')" | node
       - generatelogs:
@@ -48,3 +46,5 @@ workflows:
   build-workflow:
     jobs:
       - build
+      - contexts:
+          context: DOCKER_HUB
